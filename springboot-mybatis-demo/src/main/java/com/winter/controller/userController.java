@@ -1,21 +1,27 @@
 package com.winter.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.winter.service.UserService;
+import com.winter.model.User;
 
 @Controller
 @EnableAutoConfiguration
 @RequestMapping("/user")
 
 public class userController {
+    @Autowired
+    private UserService userService;
+
 
     @ResponseBody
-    @RequestMapping(value = "/add")
-    String home() {
-        return "Hello ,spring boot!";
+    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
+    public int addUser(User user){
+        return userService.addUser(user);
     }
 
     @ResponseBody

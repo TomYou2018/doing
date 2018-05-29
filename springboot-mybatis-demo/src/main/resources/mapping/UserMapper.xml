@@ -13,6 +13,15 @@
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR})
   </insert>
+
+    <!-- 这个方法是我自己加的 -->
+    <select id="selectAllUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+    </select>
+
+
   <insert id="insertSelective" parameterType="com.winter.model.User">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
