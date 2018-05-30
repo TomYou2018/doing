@@ -12,6 +12,19 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
+
+  <sql id="Base_Column_List" >
+    id,name,password
+  </sql>
+
+  <select id="selectAllUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from users
+
+  </select>
+
+
   <insert id="insertSelective" parameterType="com.winter.model.User">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">

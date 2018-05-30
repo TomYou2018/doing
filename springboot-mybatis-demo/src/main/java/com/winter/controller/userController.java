@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @EnableAutoConfiguration
 @RequestMapping("/user")
@@ -34,6 +36,13 @@ public class userController {
     String test(){
         return "test";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/brw")
+    List<User> browse(){
+        return userService.selectAllUser();}
+
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(userController.class, args);
         //运行之后在浏览器中访问：http://localhost:8080/hello

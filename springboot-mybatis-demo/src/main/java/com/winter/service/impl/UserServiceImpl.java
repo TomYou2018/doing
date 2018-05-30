@@ -36,4 +36,8 @@ public class UserServiceImpl implements UserService {
        PageHelper.startPage(pageNum, pageSize);
         return userMapper.selectAllUser();
     }
+    public List<User> selectAllUser(){
+        //将参数传给这个方法就可以实现物理分页了，非常简单。
+        return userMapper.selectAllUser();
+    }
 }
