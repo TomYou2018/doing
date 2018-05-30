@@ -9,9 +9,9 @@ spring:
         username: root
         password: root
         # 使用druid数据源
-        #type: com.alibaba.druid.pool.DruidDataSource
+        type: com.alibaba.druid.pool.DruidDataSource
         #type: org.apache.tomcat.jdbc.pool.DataSource
-        type: org.springframework.jdbc.datasource.DriverManagerDataSource
+        $type: org.springframework.jdbc.datasource.DriverManagerDataSource
         driver-class-name: com.mysql.jdbc.Driver
         filters: stat
         maxActive: 20
