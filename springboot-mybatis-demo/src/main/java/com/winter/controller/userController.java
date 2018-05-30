@@ -1,5 +1,8 @@
 package com.winter.controller;
 
+import com.winter.model.User;
+import com.winter.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -12,10 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 public class userController {
 
+    @Autowired
+    private UserService userService;
+
+    //@ResponseBody
+    //@RequestMapping(value = "/add")
+    //String home() {
+    //    return "Hello ,spring boot!";
+   // }
     @ResponseBody
-    @RequestMapping(value = "/add")
-    String home() {
-        return "Hello ,spring boot!";
+    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
+    public int addUser(User user){
+        return userService.addUser(user);
     }
 
     @ResponseBody
