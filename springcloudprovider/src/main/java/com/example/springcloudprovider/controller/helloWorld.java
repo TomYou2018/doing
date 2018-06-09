@@ -20,13 +20,13 @@ public class helloWorld {
     @RequestMapping("/")
     public String home() {
 
-        List<ServiceInstance> instances = client.getInstances("hello-service");
-        logger.info("test");
-        System.out.println("test");
+      //List<ServiceInstance> instances = client.getInstances("hello-service");
+       // logger.info("test");
+       // System.out.println("test");
 
-        for (int i = 0; i < instances.size(); i++) {
-            logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
-        }
+//        for (int i = 0; i < instances.size(); i++) {
+//            logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
+//        }
 
         return "Hello world2";
     }
