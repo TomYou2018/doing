@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient("hello-service")
-public interface UserClient {
+public interface UserClient  {
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String getS();

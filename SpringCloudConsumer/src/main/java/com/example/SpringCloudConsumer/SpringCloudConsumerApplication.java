@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages ={"com.example.SpringCloudConsumer.client"})
+@EnableFeignClients
 @SpringBootApplication
 public class SpringCloudConsumerApplication {
-	//@Bean
-	//@LoadBalanced
-	RestTemplate restTemplate() {
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
 

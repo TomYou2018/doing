@@ -1,6 +1,6 @@
 package com.example.SpringCloudConsumer.controller;
 
-import com.example.SpringCloudConsumer.service.helloRemote;
+import com.example.SpringCloudConsumer.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.HttpHeaders;
@@ -15,10 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 public class helloConsumer {
 
-  //  @Autowired
- // @Autowired
-  helloRemote hr;
-    private RestTemplate restTemplate= new RestTemplate();
+  @Autowired
+  RestTemplate restTemplate;
 
 
     @GetMapping("/")
@@ -28,9 +26,11 @@ public class helloConsumer {
 //       if (something!= "") {
 //           return something;
 //       }
+       /// userClient.getS();
+        //restTemplate.getForObject("http://hello-service/", String.class);
 
-//        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://HELLO-SERVICE/", String.class);
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://hello-service:8080/", String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://hello-service/", String.class);
+        //ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:8080/", String.class);
         String body = responseEntity.getBody();
         HttpStatus statusCode = responseEntity.getStatusCode();
         int statusCodeValue = responseEntity.getStatusCodeValue();
