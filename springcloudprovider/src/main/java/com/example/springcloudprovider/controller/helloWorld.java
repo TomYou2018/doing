@@ -3,6 +3,7 @@ package com.example.springcloudprovider.controller;
 
 import javafx.application.Application;
 import org.apache.logging.log4j.LogManager;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,9 @@ public class helloWorld {
     private final Logger logger = LogManager.getLogger();
     private DiscoveryClient client;
 
+    @Value("${server.port}")
+    String port;
+
     @RequestMapping("/")
     public String home() {
 
@@ -28,7 +32,7 @@ public class helloWorld {
 //            logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
 //        }
 
-        return "Hello world2";
+        return "Hello world " + "from " + port;
     }
 //    public static void main(String[] args) {
 //        new SpringApplicationBuilder(Application.class).web(true).run(args);
